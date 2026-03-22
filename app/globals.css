@@ -113,6 +113,21 @@ body {
   top: 1rem;
 }
 
+/* Home: Claude.ai–style landing — dark body behind full-bleed page */
+body.claude-home-body {
+  background: #141413;
+  color: #eceae3;
+}
+
+body.claude-home-body .skip-link {
+  background: #d97757;
+  color: #1a1816;
+}
+
+body.claude-home-body .skip-link:focus {
+  outline-color: #f5f3ef;
+}
+
 /* Prose-ish max line length for long copy */
 .prose-width {
   max-width: 42rem;
