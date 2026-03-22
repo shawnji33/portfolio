@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+/* -------------------------------------------------------------------------- */
+/* Design tokens — warm editorial base, terracotta accent, high readability    */
+/* -------------------------------------------------------------------------- */
+:root {
+  --bg: #f7f4ef;
+  --bg-muted: #efe9e0;
+  --fg: #1a1816;
+  --fg-muted: #5c5650;
+  --accent: #b54a2a;
+  --accent-hover: #9a3f24;
+  --accent-fg: #fffaf7;
+  --border: #d9d0c4;
+  --ring: #b54a2a;
+  --shadow-sm: 0 1px 2px rgb(26 24 22 / 0.06);
+  --shadow-md: 0 8px 24px rgb(26 24 22 / 0.08);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --step--1: clamp(0.875rem, 0.82rem + 0.2vw, 0.9375rem);
+  --step-0: clamp(1rem, 0.94rem + 0.25vw, 1.0625rem);
+  --step-1: clamp(1.125rem, 1rem + 0.45vw, 1.25rem);
+  --step-2: clamp(1.35rem, 1.15rem + 0.75vw, 1.6rem);
+  --step-3: clamp(1.65rem, 1.35rem + 1.1vw, 2rem);
+  --step-4: clamp(2rem, 1.55rem + 1.6vw, 2.65rem);
+  --step-5: clamp(2.4rem, 1.85rem + 2.1vw, 3.25rem);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121110;
+    --bg-muted: #1c1a18;
+    --fg: #f2ede6;
+    --fg-muted: #a89f94;
+    --accent: #e07a5a;
+    --accent-hover: #ea9277;
+    --accent-fg: #1a1816;
+    --border: #3a3530;
+    --ring: #e07a5a;
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.35);
+    --shadow-md: 0 12px 32px rgb(0 0 0 / 0.45);
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-muted: var(--bg-muted);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-border: var(--border);
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Base                                                                        */
+/* -------------------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: var(--step-0);
+  line-height: 1.6;
+}
+
+.font-display {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent) 28%, transparent);
+}
+
+/* Focus visible — keyboard users */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 0.75rem 1rem;
+  background: var(--accent);
+  color: var(--accent-fg);
+  border-radius: var(--radius-sm);
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* Prose-ish max line length for long copy */
+.prose-width {
+  max-width: 42rem;
+}
